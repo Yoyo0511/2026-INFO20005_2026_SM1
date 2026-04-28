@@ -76,3 +76,80 @@ h1, h2, h3 {
         padding: 20px 10%;
     }
 }
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    flex-direction: column; /* Mobile first stack */
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--charcoal);
+}
+
+.btn-primary {
+    background-color: var(--sage-green);
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%; /* Full width for easy mobile tapping */
+}
+
+.image-box {
+    width: 100%;
+    height: 300px;
+    background-color: #ddd; /* Placeholder color */
+    border-radius: 10px;
+}
+
+/* CATEGORY GRID */
+.categories {
+    padding: 40px 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.category-card {
+    background: var(--white);
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* DESKTOP ADJUSTMENTS (1368px Target) */
+@media (min-width: 1024px) {
+    .hero {
+        flex-direction: row; /* Side-by-side Z-pattern */
+        align-items: center;
+        padding: 80px 10%;
+    }
+
+    .hero-content, .hero-image {
+        flex: 1;
+    }
+
+    .btn-primary {
+        width: auto; /* Return to standard button size */
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+        gap: 30px;
+    }
+}
