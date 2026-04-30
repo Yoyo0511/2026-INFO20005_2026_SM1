@@ -1,4 +1,4 @@
-/* GLOBAL VARIABLES - */
+/* GLOBAL VARIABLES (Oatmeal #F5F5DC used as background to match user image) */
 :root {
     --sage-green: #87A96B;
     --oatmeal: #F5F5DC;
@@ -19,11 +19,18 @@ body {
     background-color: var(--oatmeal);
     color: var(--charcoal);
     line-height: 1.6;
-    padding-bottom: 70px; /* Space for bottom nav */
+    padding-bottom: 70px; /* Space for mobile bottom nav */
 }
 
 h1, h2, h3 {
     font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* TOP NAVIGATION */
@@ -31,18 +38,198 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px 20px;
     background: var(--white);
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
+    color: var(--charcoal);
 }
 
-/* MOBILE BOTTOM NAV */
+.nav-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Desktop navigation links are hidden on mobile by default */
+.categories-desktop {
+    display: none;
+    gap: 20px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.categories-desktop a {
+    text-decoration: none;
+    color: var(--charcoal);
+}
+
+/* MOBILE CATEGORY BAR (with icons, below header) */
+.category-bar-mobile {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.cat-item {
+    text-decoration: none;
+    color: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.cat-icon-placeholder {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+/* HERO SECTION with Positioning */
+.hero {
+    position: relative; /* CRITICAL for absolute children positioning */
+    overflow: hidden; /* Ensures overlay content is contained */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Image covers container */
+}
+
+/* Dark gradient overlay to make white text pop on the detailed image */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)); /* Subtle top-down darken */
+    z-index: 1;
+}
+
+.hero-overlay-content {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Counter-shift for true center */
+    width: 80%; /* Takes up most of screen width on mobile */
+    text-align: center;
+    z-index: 2; /* Sits above the gradient overlay */
+}
+
+.hero-overlay-content h1 {
+    font-size: 2.2rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Extra pop for contrast */
+}
+
+.btn-primary {
+    background-color: var(--sage-green);
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    width: auto; /* Full width mobile full width bouton rejected for boutique look */
+}
+
+/* FEATURES BANNER */
+.features-banner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
+    gap: 15px;
+    padding: 30px 20px;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-icon-placeholder {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+}
+
+.feature-item p strong {
+    font-weight: 700;
+}
+
+/* COMMUNITY FAVORITES & PRODUCT GRID */
+.community-favorites {
+    padding: 40px 20px;
+}
+
+.community-favorites h2 {
+    font-size: 1.8rem;
+    color: var(--charcoal);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2x2 grid on mobile */
+    gap: 20px;
+}
+
+.product-card {
+    background: #FAFAFA;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.02);
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    margin: 0 auto 15px;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    font-weight: bold;
+    color: var(--charcoal);
+    margin-bottom: 3px;
+}
+
+.product-card .condition {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* MOBILE BOTTOM NAV (Jakob's Law implementation remains) */
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -67,89 +254,95 @@ h1, h2, h3 {
     color: var(--sage-green);
 }
 
-/* DESKTOP TARGET (1368px) */
+/* Handle desktop-only sections on mobile by default */
+.desktop-only-feature,
+.desktop-only-section {
+    display: none;
+}
+
+/* LARGE TABLET / DESKTOP ADJUSTMENTS (min-width: 1024px, 1368px Target) */
 @media (min-width: 1024px) {
-    .bottom-nav {
-        display: none; /* Hide bottom nav on desktop */
+    /* Hide mobile-specific bars */
+    .bottom-nav,
+    .category-bar-mobile {
+        display: none;
     }
+
+    /* Show desktop navigation & features */
+    .categories-desktop,
+    .desktop-only-feature,
+    .desktop-only-section {
+        display: flex;
+    }
+
+    /* Top Navigation bar layout */
     .top-nav {
-        padding: 20px 10%;
+        padding: 20px 80px; /* Use more horizontal real estate */
     }
-}
 
-/* HERO SECTION */
-.hero {
-    display: flex;
-    flex-direction: column; /* Mobile first stack */
-    padding: 40px 20px;
-    gap: 20px;
-}
+    /* Features banner: 4 columns on desktop */
+    .features-banner {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 40px 80px;
+    }
 
-.hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: var(--charcoal);
-}
-
-.btn-primary {
-    background-color: var(--sage-green);
-    color: var(--white);
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-family: var(--font-body);
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%; /* Full width for easy mobile tapping */
-}
-
-.image-box {
-    width: 100%;
-    height: 300px;
-    background-color: #ddd; /* Placeholder color */
-    border-radius: 10px;
-}
-
-/* CATEGORY GRID */
-.categories {
-    padding: 40px 20px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.category-card {
-    background: var(--white);
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-/* DESKTOP ADJUSTMENTS (1368px Target) */
-@media (min-width: 1024px) {
+    /* Hero section size and positioning */
     .hero {
-        flex-direction: row; /* Side-by-side Z-pattern */
-        align-items: center;
-        padding: 80px 10%;
+        height: 80vh; /* Set a large fixed height for desktop hero */
     }
 
-    .hero-content, .hero-image {
-        flex: 1;
+    .hero-image {
+        width: 100%;
+        height: 100%; /* Image fills container */
     }
 
-    .btn-primary {
-        width: auto; /* Return to standard button size */
+    .hero-overlay-content {
+        top: 50%;
+        left: 80px; /* Aligned left, as per user image */
+        transform: translate(0, -50%); /* Counter-shift vertically only */
+        width: 50%; /* Text occupies less width on large screens */
+        text-align: left; /* Left-aligned text */
     }
 
-    .grid-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    .hero-overlay-content h1 {
+        font-size: 3rem; /* Larger heading */
+        margin-bottom: 25px;
+    }
+
+    /* Product Grid: 4 columns on desktop */
+    .community-favorites {
+        padding: 60px 80px;
+    }
+
+    .community-favorites h2 {
+        font-size: 2.2rem;
+        text-align: left;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
         gap: 30px;
+    }
+
+    /* 'Why Shop Sustainable?' section */
+    .why-sustainable {
+        padding: 0 80px 80px;
+    }
+
+    .sustainable-box {
+        background-color: var(--white);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .why-sustainable h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .why-sustainable p {
+        margin-bottom: 15px;
+        max-width: 80%; /* Keeps lines short for readability */
     }
 }
