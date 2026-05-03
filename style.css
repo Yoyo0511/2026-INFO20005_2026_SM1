@@ -346,3 +346,93 @@ img {
         max-width: 80%; /* Keeps lines short for readability */
     }
 }
+
+/* PDP STYLES */
+.pdp-container {
+    padding-bottom: 120px; /* Extra space for the sticky bar */
+}
+
+.main-product-img {
+    width: 100%;
+    background: #fff;
+}
+
+.product-info {
+    padding: 20px;
+    background: var(--oatmeal);
+}
+
+.pdp-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.condition-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: var(--white);
+    border: 1px solid var(--sage-green);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+.size-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.size-btn {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.size-btn.active {
+    border-color: var(--sage-green);
+    background: var(--sage-green);
+    color: var(--white);
+}
+
+/* THE STICKY CTA BAR */
+.sticky-cta {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--white);
+    padding: 15px 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    z-index: 2000;
+}
+
+.cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1368px;
+    margin: 0 auto;
+}
+
+.qty-selector {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* DESKTOP PDP ADJUSTMENTS */
+@media (min-width: 1024px) {
+    .pdp-container {
+        display: flex;
+        padding: 60px 10%;
+        gap: 50px;
+    }
+    .product-visuals, .product-info {
+        flex: 1;
+    }
+}
