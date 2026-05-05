@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | The Little Capsule Co</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">The Little Capsule Co</a></div>
+            <div class="nav-icons"><span id="cart-count">🛒</span></div>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <h1>Checkout</h1>
+
+        <!-- Order Summary -->
+        <section class="checkout-section">
+            <h3>Order Summary</h3>
+            <div id="order-summary-box">
+                <p>Items in cart: <span id="summary-qty">0</span></p>
+                <p>Total: <span id="summary-total">$0.00</span></p>
+            </div>
+        </section>
+
+        <!-- Delivery & Payment Form -->
+        <form id="checkout-form">
+            <section class="checkout-section">
+                <h3>Delivery Details</h3>
+                <input type="text" id="full-name" placeholder="Full Name" required>
+                <input type="text" id="address" placeholder="Street Address" required>
+            </section>
+
+            <section class="checkout-section">
+                <h3>Payment</h3>
+                <input type="text" id="card-num" placeholder="Card Number (16 digits)" maxlength="16" required>
+                <div class="form-row">
+                    <input type="text" id="expiry" placeholder="MM/YY" required>
+                    <input type="text" id="cvv" placeholder="CVV" maxlength="3" required>
+                </div>
+            </section>
+
+            <button type="submit" id="complete-btn" class="btn-primary">Complete Purchase</button>
+        </form>
+
+        <!-- Success Message (Hidden by default) -->
+        <div id="success-state" class="hidden">
+            <div class="success-content">
+                <h2>✨ Order Confirmed!</h2>
+                <p>Thank you for shopping sustainably. Your order is on its way.</p>
+                <a href="index.html" class="btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -51,4 +51,30 @@ function setupEventListeners() {
             if (val > 1) qtySpan.innerText = val - 1;
         });
     }
+    
+    const summaryQty = document.getElementById('summary-qty');
+    const summaryTotal = document.getElementById('summary-total');
+    const checkoutForm = document.getElementById('checkout-form');
+    const successState = document.getElementById('success-state');
+
+    if (summaryQty) {
+        summaryQty.innerText = cartCount;
+        summaryTotal.innerText = `$${(cartCount * 32.00).toFixed(2)}`; // Mock price calculation
+    }
+
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            
+            const btn = document.getElementById('complete-btn');
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                localStorage.removeItem('cartTotal'); 
+                // This removes the 'display: none !important' 
+                successState.classList.remove('hidden');
+            }, 2000);
+        });
+    }
 }
