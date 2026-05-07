@@ -5,6 +5,21 @@ let cartCount = parseInt(localStorage.getItem('cartTotal')) || 0;
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
     setupEventListeners();
+    const cartList = document.getElementById('cart-items-list');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const clearBtn = document.getElementById('clear-cart');
+
+    // If we are on the Cart page, render the items
+    if (cartList) {
+        renderCart();
+    }
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            localStorage.removeItem('cartTotal');
+            location.reload(); // Refresh to show empty state
+        });
+    }
 });
 
 function updateCartUI() {
@@ -76,5 +91,30 @@ function setupEventListeners() {
                 successState.classList.remove('hidden');
             }, 2000);
         });
+    }
+}
+
+function renderCart() {
+    const cartList = document.getElementById('cart-items-list');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const currentCount = parseInt(localStorage.getItem('cartTotal')) || 0;
+
+    if (currentCount > 0) {
+        // Clear the 'empty' message
+        cartList.innerHTML = ''; 
+
+        // placeholder only beanie
+        const itemHtml = `
+            <div class="cart-item-row">
+                <img src="beanie.webp" class="cart-item-img">
+                <div class="cart-item-info">
+                    <h3>Cashmere Beanie</h3>
+                    <p>Qty: ${currentCount}</p>
+                    <p>Price: $32.00</p>
+                </div>
+            </div>
+        `;
+        cartList.innerHTML = itemHtml;
+        subtotalEl.innerText = `$${(currentCount * 32.00).toFixed(2)}`;
     }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | The Little Capsule Co</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">The Little Capsule Co</a></div>
+            <div class="nav-icons"><span id="cart-count">🛒</span></div>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <h1>Your Shopping Bag</h1>
+        
+        <div id="cart-items-list">
+            <!-- This will be populated by JavaScript -->
+            <div class="empty-cart-msg">Your bag is currently empty.</div>
+        </div>
+
+        <section class="cart-totals">
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <a href="checkout.html" class="btn-primary" id="checkout-link">Proceed to Checkout</a>
+            <button class="btn-secondary" id="clear-cart">Clear Cart</button>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="catalog.html" class="nav-item">Search</a>
+        <a href="cart.html" class="nav-item active">Cart</a>
+        <a href="#" class="nav-item">Profile</a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
