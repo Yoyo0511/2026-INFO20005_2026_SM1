@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashmere Jumper | The Little Capsule Co</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">The Little Capsule
+                    Co</a></div>
+            <div class="nav-icons">
+                <a href="catalog.html" style="text-decoration:none;">🔍</a>
+                <a href="cart.html" style="text-decoration:none;"><span id="cart-count">🛒</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pdp-container">
+        <section class="product-visuals">
+            <img src="jumper.webp" alt="Cashmere Jumper" class="main-product-img">
+        </section>
+
+        <section class="product-info">
+            <h1>Cashmere Jumper</h1>
+            <p class="pdp-price">$45.00</p>
+            <div class="condition-tag">Condition: Like New</div>
+
+            <div class="description-box">
+                <h3>Description</h3>
+                <p>A beautiful, ethically produced 100% cashmere jumper. Soft on delicate skin and built to last through
+                    multiple siblings.</p>
+            </div>
+
+            <div class="size-selector">
+                <h3>Select Size</h3>
+                <div class="size-options">
+                    <button class="size-btn">000</button>
+                    <button class="size-btn active">0</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="sticky-cta">
+        <div class="cta-inner">
+            <div class="qty-selector">
+                <button id="minus">-</button>
+                <span id="qty">1</span>
+                <button id="plus">+</button>
+            </div>
+            <button id="add-to-cart-btn" class="btn-primary">Add to Bag</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
