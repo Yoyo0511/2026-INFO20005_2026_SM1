@@ -28,40 +28,42 @@
         <section class="search-filter-section">
             <input type="text" id="catalog-search" placeholder="Search for 'Beanie' or 'Cashmere'...">
             <div class="filter-pills">
-                <button class="pill active">All</button>
-                <button class="pill">Size 000</button>
-                <button class="pill">Size 00</button>
-                <button class="pill">New</button>
+                <button class="pill active" data-filter="all">All</button>
+                <button class="pill" data-filter="Size 000">Size 000</button>
+                <button class="pill" data-filter="Size 00">Size 00</button>
+                <button class="pill" data-filter="Size 0">Size 0</button>
             </div>
         </section>
 
         <!-- Dynamic Product Grid -->
         <section class="product-grid" id="main-catalog-grid">
             <!-- Product 1 -->
-            <a href="product1.html" class="product-card" style="text-decoration:none; color:inherit;">
+            <a href="product1.html" class="product-card" data-category="Size 00" style="text-decoration:none; color:inherit;">
                 <img src="beanie.webp" alt="Cashmere Beanie">
                 <h3>Cashmere Beanie</h3>
                 <p class="price">$32.00</p>
                 <span class="tag">Size 00</span>
             </a>
             <!-- Product 2 -->
-            <a href="product2.html" class="product-card" style="text-decoration:none; color:inherit;">
+            <a href="product2.html" class="product-card" data-category="Size 0" style="text-decoration:none; color:inherit;">
                 <img src="jumper.webp" alt="Cashmere Jumper">
                 <h3>Cashmere Jumper</h3>
                 <p class="price">$45.00</p>
                 <span class="tag">Size 0</span>
             </a>
             <!-- Product 3 -->
-            <a href="product3.html" class="product-card" style="text-decoration:none; color:inherit;">
+            <a href="product3.html" class="product-card" data-category="Size 000" style="text-decoration:none; color:inherit;">
                 <img src="leggings.webp" alt="Cashmere Leggings">
                 <h3>Cashmere Leggings</h3>
                 <p class="price">$38.00</p>
+                <span class="tag">Size 000</span>
             </a>
             <!-- Product 4 -->
-            <a href="product4.html" class="product-card" style="text-decoration:none; color:inherit;">
+            <a href="product4.html" class="product-card" data-category="Size 0" style="text-decoration:none; color:inherit;">
                 <img src="boots.webp" alt="Cashmere Booties">
                 <h3>Cashmere Booties</h3>
                 <p class="price">$18.00</p>
+                <span class="tag">Size 0</span>
             </a>
         </section>
     </main>
