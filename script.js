@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setupCheckoutLogic();
     }
 
+    if (document.querySelector('.carousel-container')) {
+        initProductCarousel();
+    }
+
     // Global Clear Cart Button
     const clearBtn = document.getElementById('clear-cart');
     if (clearBtn) {
@@ -50,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * CATALOG LOGIC: Filtering & Live Search
- * Student Note: I am using 'Attribute Selection' to hide/show cards.
+ * Note: Using 'Attribute Selection' to hide/show cards.
  */
 function initCatalogLogic() {
     const searchInput = document.getElementById('catalog-search');
@@ -214,5 +218,46 @@ function setupCheckoutLogic() {
             successState.classList.remove('hidden');
             window.scrollTo(0, 0);
         }, 2000);
+    });
+}
+
+/**
+ * UI FEATURE: Interactive Product Image Carousel
+ * Student Note: Uses translate style tracking to calculate horizontal offset shifts.
+ */
+function initProductCarousel() {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const prevBtn = document.getElementById('prev-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateCarouselPosition() {
+        // Move track horizontally by multiplying index by 100%
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update dots state to show active slide (Heuristic #1)
+        dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    nextBtn.addEventListener('click', () => {
+        // Loop back to first image if at the end, otherwise step forward
+        currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+        updateCarouselPosition();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        // Loop to last image if at the start, otherwise step backward
+        currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+        updateCarouselPosition();
     });
 }
