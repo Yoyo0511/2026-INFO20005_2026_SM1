@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         initProductCarousel();
     }
 
+    // Apply restriction to payment inputs
+    restrictToNumbers('card-num');
+    restrictToNumbers('cvv');
+    setupExpiryFormatter();
+
     // Global Clear Cart Button
     const clearBtn = document.getElementById('clear-cart');
     if (clearBtn) {
@@ -223,7 +228,7 @@ function setupCheckoutLogic() {
 
 /**
  * UI FEATURE: Interactive Product Image Carousel
- * Student Note: Uses translate style tracking to calculate horizontal offset shifts.
+ * Note: Uses translate style tracking to calculate horizontal offset shifts.
  */
 function initProductCarousel() {
     const track = document.querySelector('.carousel-track');
@@ -259,5 +264,40 @@ function initProductCarousel() {
         // Loop to last image if at the start, otherwise step backward
         currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
         updateCarouselPosition();
+    });
+}
+
+/**
+ * UI FEATURE: Numeric-only input restriction
+ * Prevents users from typing letters or special characters in payment fields.
+ */
+function restrictToNumbers(inputId) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+
+    input.addEventListener('input', (e) => {
+        // Regex /[^0-9]/g looks for anything NOT (^) a number (0-9) globally (g)
+        // and replaces it with an empty string
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+}
+
+/**
+ * UI FEATURE: Auto-formatting for Expiry Date (MM/YY)
+ * This automatically adds a slash after the first two digits.
+ */
+function setupExpiryFormatter() {
+    const expiryInput = document.getElementById('expiry');
+    if (!expiryInput) return;
+
+    expiryInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/[^0-9]/g, ''); // Strip non-numbers
+        
+        // If they type more than 2 digits, insert the slash
+        if (value.length > 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        
+        e.target.value = value;
     });
 }
