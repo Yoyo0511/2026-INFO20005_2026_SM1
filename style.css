@@ -691,3 +691,51 @@ img {
 .dot.active {
     background: var(--sage-green); /* Links back to brand color */
 }
+
+.site-footer {
+    background: var(--oatmeal); /* Matches site background */
+    padding: 60px 20px 20px 20px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+    color: var(--charcoal);
+}
+
+.footer-section a {
+    display: block;
+    color: var(--charcoal);
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: #888;
+}
