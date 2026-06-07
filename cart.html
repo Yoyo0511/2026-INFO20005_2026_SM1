@@ -36,7 +36,17 @@
                 <span>Subtotal</span>
                 <span id="cart-subtotal">$0.00</span>
             </div>
-            <a href="checkout.html" class="btn-primary" id="checkout-link">Proceed to Checkout</a>
+            <section class="shipping-progress">
+                <div class="progress-info">
+                    <span id="shipping-msg">Spend $100 for free shipping!</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress-fill" class="progress-bar-fill"></div>
+                </div>
+            </section>
+            <div class="cart-actions">
+                <a href="checkout.html" class="btn-primary" id="checkout-link">Proceed to Checkout</a>
+            </div>
             <button class="btn-secondary" id="clear-cart">Clear Cart</button>
         </section>
     </main>

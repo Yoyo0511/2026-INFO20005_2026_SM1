@@ -170,6 +170,7 @@ function renderCart() {
             `);
         }
         subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+        updateShippingProgress(subtotal);
         setupRemoveButtons(); 
     } else {
         cartList.innerHTML = '<div class="empty-cart-msg">Your bag is currently empty.</div>';
@@ -300,4 +301,26 @@ function setupExpiryFormatter() {
         
         e.target.value = value;
     });
+}
+
+function updateShippingProgress(subtotal) {
+    const freeShippingGoal = 100;
+    const progressFill = document.getElementById('progress-fill');
+    const shippingMsg = document.getElementById('shipping-msg');
+    
+    if (!progressFill || !shippingMsg) return;
+
+    // Calculate percentage
+    let percentage = (subtotal / freeShippingGoal) * 100;
+    if (percentage > 100) percentage = 100;
+
+    progressFill.style.width = percentage + '%';
+
+    // Update message
+    if (subtotal >= freeShippingGoal) {
+        shippingMsg.innerText = "You've unlocked free shipping!";
+    } else {
+        const remaining = (freeShippingGoal - subtotal).toFixed(2);
+        shippingMsg.innerText = `Add $${remaining} more for free shipping`;
+    }
 }
